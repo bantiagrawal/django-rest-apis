@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apis'
+    'apis',
+    'blockchain'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'app_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    # 'app_db': {
+    #     'NAME': 'bcmdbp01',
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'USER': 'bcmreadonlyapi',
+    #     'PASSWORD': 'Vizbcm213@Viz',
+    #     'HOST': 'bcmsrv01.postgres.database.azure.com',
+    # },
+
 }
+#DATABASE_ROUTERS = ['database_router.AuthRouter', 'database_router.AppRouter']
 
 
 # Password validation
