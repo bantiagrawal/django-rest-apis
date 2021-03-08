@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apis',
-    'blockchain'
+    'blockchain',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -81,15 +82,18 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # },
     'default': {
-        'NAME': 'bcmdjapp',
+        'NAME': 'bcmdbp01',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'OPTIONS': {
+        #     'options': '-c search_path=bcmdjapp'
+        # },
+
         'USER': 'bcmdjanapp1',
         'PASSWORD': 'METRbcm312@@metr',
         'HOST': 'bcmsrv01.postgres.database.azure.com',
     }
 
 }
-#DATABASE_ROUTERS = ['database_router.AuthRouter', 'database_router.AppRouter']
 
 
 # Password validation

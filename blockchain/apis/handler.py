@@ -1,10 +1,14 @@
+import os
+import sys
 from django.db import connection
+from mixer.django.backends import mixer
 
 class BlockChainHandler:
     '''select * From bcm1.latest_price_view;
     '''
     def __init__(self):
-        pass
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blockchain.settings')
+        
 
     def my_custom_sql(self):
         with connection.cursor() as cursor:
@@ -12,8 +16,6 @@ class BlockChainHandler:
             row = cursor.fetchone()
 
         return row
-
-bc_handler = BlockChainHandler()
-count = bc_handler.my_custom_sql()
-
-print(count)
+    def create_data(self):
+        for i in range(100):
+            mixer.blend('apis.Employee')
