@@ -76,21 +76,17 @@ WSGI_APPLICATION = 'blockchain.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'app_db': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    # 'app_db': {
-    #     'NAME': 'bcmdbp01',
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'USER': 'bcmreadonlyapi',
-    #     'PASSWORD': 'Vizbcm213@Viz',
-    #     'HOST': 'bcmsrv01.postgres.database.azure.com',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
     # },
+    'default': {
+        'NAME': 'bcmdjapp',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'bcmdjanapp1',
+        'PASSWORD': 'METRbcm312@@metr',
+        'HOST': 'bcmsrv01.postgres.database.azure.com',
+    }
 
 }
 #DATABASE_ROUTERS = ['database_router.AuthRouter', 'database_router.AppRouter']
