@@ -9,12 +9,6 @@ from .filters import LatestPriceViewFilter,HistoryPriceViewFilter
 from collections import OrderedDict
 class CustomPageNumberPagination(PageNumberPagination):
     page_size_query_param='rows'
-    def get_paginated_response(self, data):
-        return Response(OrderedDict([
-            ('next', self.get_next_link()),
-            ('previous', self.get_previous_link()),
-            ('results', data)
-        ]))
 
 class LatestPriceViewset(viewsets.ModelViewSet):
     queryset=LatestPriceView.objects.all()
