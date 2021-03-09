@@ -1,7 +1,5 @@
-
 from .models import HistoryPriceView, LatestPriceView
 ROUTED_MODELS = [HistoryPriceView, LatestPriceView]
-
 
 class DBRouter(object):
 

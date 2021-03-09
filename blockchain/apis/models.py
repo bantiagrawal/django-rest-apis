@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 class HistoryPriceView(models.Model):
     id = models.BigIntegerField(blank=True, primary_key=True)
     name = models.CharField(max_length=100, blank=True, null=True)
@@ -9,7 +9,11 @@ class HistoryPriceView(models.Model):
     volume_24h = models.CharField(max_length=50, blank=True, null=True)
     market_cap = models.CharField(max_length=50, blank=True, null=True)
     load_date_time = models.DateTimeField(blank=True, null=True)
+    currency = models.CharField(max_length=50, blank=True, null=True)
 
+    @property
+    def days(self):
+        return (self.latest_load_time.date() - datetime.datetime.now().date()).days
     class Meta:
         managed = False  # Created from a view. Don't remove.
         db_table = 'history_price_view'
@@ -40,7 +44,11 @@ class LatestPriceView(models.Model):
     load_date = models.DateField(blank=True, null=True)
     load_date_time = models.DateTimeField(blank=True, null=True)
     latest_load_time = models.DateTimeField(blank=True, null=True)
+    currency = models.CharField(max_length=50, blank=True, null=True)
 
+    @property
+    def days(self):
+        return (self.latest_load_time.date() - datetime.datetime.now().date()).days
     class Meta:
         managed = False  # Created from a view. Don't remove.
         db_table = 'latest_price_view'
