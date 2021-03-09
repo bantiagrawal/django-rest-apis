@@ -77,21 +77,29 @@ WSGI_APPLICATION = 'blockchain.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # },
     'default': {
         'NAME': 'bcmdbp01',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'OPTIONS': {
-        #     'options': '-c search_path=bcmdjapp'
-        # },
+        'OPTIONS': {
+            'options': '-c search_path=bcmdjapp'
+        },
+
+        'USER': 'bcmdjanapp1',
+        'PASSWORD': 'METRbcm312@@metr',
+        'HOST': 'bcmsrv01.postgres.database.azure.com',
+    },
+        'bcm1': {
+        'NAME': 'bcmdbp01',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+            'options': '-c search_path=bcm1'
+        },
 
         'USER': 'bcmdjanapp1',
         'PASSWORD': 'METRbcm312@@metr',
         'HOST': 'bcmsrv01.postgres.database.azure.com',
     }
+
 
 }
 
@@ -133,3 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE':100
+}
+DATABASE_ROUTERS = ('apis.router.DBRouter',)
