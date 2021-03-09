@@ -5,7 +5,7 @@ from .models import LatestPriceView, HistoryPriceView
 class LatestPriceViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = LatestPriceView
-        fields = ['id','days','currency']
+        fields = '__all__'
 
 class HistoryPriceViewSerializer(serializers.ModelSerializer):
     

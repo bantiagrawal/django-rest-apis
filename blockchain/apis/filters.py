@@ -1,14 +1,22 @@
-import django_filters
+from django_filters import rest_framework as filters
 from .models import HistoryPriceView, LatestPriceView
+from datetime import datetime, timedelta
 
-class LatestPriceViewFilter(django_filters.FilterSet):
-
+class LatestPriceViewFilter(filters.FilterSet):
+    days = filters.NumberFilter(field_name='latest_load_time', method='get_days', label="days")
+    def get_days(self, queryset, field_name, value):
+        return queryset.filter(latest_load_time__gte=datetime.now()-timedelta(days=int(value)))
+        
     class Meta:
         model = LatestPriceView
-        fields = ['currency']
+        fields = ['currency','days']
 
-class HistoryPriceViewFilter(django_filters.FilterSet):
+class HistoryPriceViewFilter(filters.FilterSet):
+    days = filters.NumberFilter(field_name='latest_load_time', method='get_days', label="days")
+
+    def get_days(self, queryset, field_name, value):
+        return queryset.filter(latest_load_time__gte=datetime.now()-timedelta(days=int(value)))
 
     class Meta:
         model = HistoryPriceView
-        fields = ['id', 'currency', 'price']        
+        fields = ['id', 'currency', 'days']        

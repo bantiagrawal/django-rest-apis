@@ -11,9 +11,6 @@ class HistoryPriceView(models.Model):
     load_date_time = models.DateTimeField(blank=True, null=True)
     currency = models.CharField(max_length=50, blank=True, null=True)
 
-    @property
-    def days(self):
-        return (self.latest_load_time.date() - datetime.datetime.now().date()).days
     class Meta:
         managed = False  # Created from a view. Don't remove.
         db_table = 'history_price_view'
@@ -46,9 +43,6 @@ class LatestPriceView(models.Model):
     latest_load_time = models.DateTimeField(blank=True, null=True)
     currency = models.CharField(max_length=50, blank=True, null=True)
 
-    @property
-    def days(self):
-        return (self.latest_load_time.date() - datetime.datetime.now().date()).days
     class Meta:
         managed = False  # Created from a view. Don't remove.
         db_table = 'latest_price_view'
