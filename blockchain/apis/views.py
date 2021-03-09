@@ -4,18 +4,18 @@ from rest_framework import pagination
 from .models import HistoryPriceView, LatestPriceView
 from .serializers import HistoryPriceViewSerializer, LatestPriceViewSerializer
 from rest_framework.pagination import PageNumberPagination
-
+from .filters import LatestPriceViewFilter,HistoryPriceView
 class CustomPageNumberPagination(PageNumberPagination):
-    page_size_query_param='row'
+    page_size_query_param='rows'
 
 class LatestPriceViewset(viewsets.ModelViewSet):
     queryset=LatestPriceView.objects.all()
     serializer_class = LatestPriceViewSerializer
-    filterset_fields = ['currency']
+    filter_class = LatestPriceViewFilter
     pagination_class=CustomPageNumberPagination
     
 
 class HistoryPriceViewSet(viewsets.ModelViewSet):
     queryset=HistoryPriceView.objects.all()
     serializer_class = HistoryPriceViewSerializer
-    filterset_fields=['id','currency']
+    filter_class = LatestPriceViewFilter
