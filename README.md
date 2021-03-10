@@ -1,2 +1,2 @@
-# blockchain
-blockchain app for Prahlad Vadap
+# blockchainmetrics
+blockchainmetrics app for Prahlad Vadap
