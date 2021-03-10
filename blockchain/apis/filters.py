@@ -1,6 +1,9 @@
-from django_filters import rest_framework as filters
-from .models import HistoryPriceView, LatestPriceView
 from datetime import datetime, timedelta
+
+from django_filters import rest_framework as filters
+
+from .models import HistoryPriceView, LatestPriceView
+
 
 class LatestPriceViewFilter(filters.FilterSet):        
     class Meta:

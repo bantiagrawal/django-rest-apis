@@ -1,5 +1,8 @@
-from django.db import models
 import datetime
+
+from django.db import models
+
+
 class HistoryPriceView(models.Model):
     id = models.BigIntegerField(blank=True, primary_key=True)
     name = models.CharField(max_length=100, blank=True, null=True)

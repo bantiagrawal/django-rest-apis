@@ -1,7 +1,8 @@
 from django.urls import path
 from rest_framework import urlpatterns
-from .views import LatestPriceViewset, HistoryPriceViewSet
 from rest_framework.routers import DefaultRouter
+
+from .views import HistoryPriceViewSet, LatestPriceViewset
 
 router = DefaultRouter()
 
