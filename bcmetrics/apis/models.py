@@ -4,9 +4,9 @@ from django.db import models
 
 
 class HistoryPriceView(models.Model):
-    id = models.BigIntegerField(blank=True, primary_key=True)
+    id = models.BigIntegerField(blank=True)
     name = models.CharField(max_length=100, blank=True, null=True)
-    rowid = models.BigIntegerField(blank=True, null=True)
+    rowid = models.BigIntegerField(blank=True, primary_key=True)
     cmc_rank = models.BigIntegerField(blank=True, null=True)
     price = models.CharField(max_length=50, blank=True, null=True)
     volume_24h = models.CharField(max_length=50, blank=True, null=True)
