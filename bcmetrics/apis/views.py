@@ -14,7 +14,7 @@ from .serializers import HistoryPriceViewSerializer, LatestPriceViewSerializer
 class CustomPageNumberPagination(PageNumberPagination):
     page_size_query_param='rows'
 
-class LatestPriceViewset(viewsets.ModelViewSet):
+class LatestPriceViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes=[IsAuthenticated]
     queryset=LatestPriceView.objects.all()
     serializer_class = LatestPriceViewSerializer
@@ -22,7 +22,7 @@ class LatestPriceViewset(viewsets.ModelViewSet):
     pagination_class=CustomPageNumberPagination
     
 
-class HistoryPriceViewSet(viewsets.ModelViewSet):
+class HistoryPriceViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes=[IsAuthenticated]
     queryset=HistoryPriceView.objects.all()
     serializer_class = HistoryPriceViewSerializer
