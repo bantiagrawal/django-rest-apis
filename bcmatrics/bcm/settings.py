@@ -28,8 +28,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
-    'apis',
-    'blockchain'
+    'apis'
     
 ]
 
@@ -43,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'blockchain.urls'
+ROOT_URLCONF = 'bcm.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +60,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blockchain.wsgi.application'
+WSGI_APPLICATION = 'bcm.wsgi.application'
 
 
 # Database
