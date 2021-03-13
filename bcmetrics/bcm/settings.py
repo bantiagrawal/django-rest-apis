@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=9lkx$)zdyz4cxfdgx=mv=wwe7cz^sv-($10a7t*a=xs_%!i56'
+SECRET_KEY = '=9lkx$)zdyz4cxfdgx=mv=wwe7cz^sv-($10a7t*a=xs_%!i56-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -71,23 +71,23 @@ DATABASES = {
         'NAME': 'bcmdbp01',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-            'options': '-c search_path=bcmdjapp'
+            'options': '-c search_path=xxxxxx'
         },
 
-        'USER': 'bcmdjanapp1',
-        'PASSWORD': 'METRbcm312@@metr',
-        'HOST': 'bcmsrv01.postgres.database.azure.com',
+        'USER': 'xxxxxxxx',
+        'PASSWORD': 'xxxxxxxxx',
+        'HOST': 'xxxx.postgres.database.azure.com',
     },
     'bcm1': {
         'NAME': 'bcmdbp01',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-            'options': '-c search_path=bcm1'
+            'options': '-c search_path=xxxxx'
         },
 
-        'USER': 'bcmdjanapp1',
-        'PASSWORD': 'METRbcm312@@metr',
-        'HOST': 'bcmsrv01.postgres.database.azure.com',
+        'USER': 'xxxxxx',
+        'PASSWORD': 'xxxxxxxx',
+        'HOST': 'xxxxx.postgres.database.azure.com',
     }
 
 
